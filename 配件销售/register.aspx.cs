@@ -11,12 +11,13 @@ public partial class register : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-
+		
 	}
 	protected void btnSubmit_Click(object sender,EventArgs e)
 	{
 		string connectionString = ConfigurationManager.ConnectionStrings["db17135111ConnectionString"].ConnectionString;
 		SqlConnection connection = new SqlConnection(connectionString);
+		connection.Open();
 		string insertcmd = "insert into Users(username,password,phonenumber,sex,address,email)values(@username,@password,@phonenumber,@sex,@address,@email)";
 		SqlCommand mycmd = new SqlCommand(insertcmd, connection);
 		string sex = "";
