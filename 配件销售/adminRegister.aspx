@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="register.aspx.cs" Inherits="register" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminRegister.aspx.cs" Inherits="adminRegister" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <div>
+ <div>
                 用户注册</div>
             <asp:Table ID="Table1" runat="server" Width="728px" Height="350px">
                 <asp:TableRow runat="server">
@@ -18,7 +18,7 @@
                     <asp:TableCell runat="server">
                         <asp:TextBox ID="txtPhonenumber" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ErrorMessage="必填" ControlToValidate="txtPhonenumber"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="电话格式不正确" ValidationExpression="^1[345678]\d{9}$" ControlToValidate="txtPhonenumber"></asp:RegularExpressionValidator>
+
 </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow runat="server">
@@ -43,13 +43,6 @@
                         <asp:TextBox ID="txtConfirmpassword" runat="server" TextMode="Password" ControlToValidate="txtConfirmpassword"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ErrorMessage="必填" ControlToValidate="txtConfirmpassword"></asp:RequiredFieldValidator>
                         <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="密码不一致" ControlToCompare="txtPassword" ControlToValidate="txtConfirmpassword"></asp:CompareValidator>
-</asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow runat="server">
-                    <asp:TableCell runat="server">地址:</asp:TableCell>
-                    <asp:TableCell runat="server">
-                        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-
 </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow runat="server">

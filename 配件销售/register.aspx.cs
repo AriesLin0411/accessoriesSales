@@ -45,4 +45,23 @@ public partial class register : System.Web.UI.Page
 		Session["username"] = txtUsername.Text.Trim();
 		Response.Write("注册成功");
 	}
+	protected void btnReset_Click(object sender, EventArgs e)
+	{
+		this.FindButton(this);
+	}
+	private void FindButton(Control c)
+	{
+		if (c.Controls != null)
+		{
+
+			foreach (Control x in c.Controls)
+			{
+				if (x is System.Web.UI.WebControls.TextBox)
+				{
+					((System.Web.UI.WebControls.TextBox)x).Text = "";
+				}
+				FindButton(x);
+			}
+		}
+	}
 }
