@@ -77,6 +77,7 @@
                 </asp:TableRow>
             </asp:Table>
         </div>
+        <asp:HyperLink ID="hlkLogin" runat="server" NavigateUrl="Login.aspx">已有帐号,直接登录</asp:HyperLink>
     </form>
 </body>
 </html>

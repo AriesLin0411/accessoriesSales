@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
  <div>
-                用户注册</div>
+                管理员信息增加</div>
             <asp:Table ID="Table1" runat="server" Width="728px" Height="350px">
                 <asp:TableRow runat="server">
                     <asp:TableCell runat="server">手机号:</asp:TableCell>
