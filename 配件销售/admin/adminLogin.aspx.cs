@@ -66,7 +66,7 @@ public partial class adminLogin : System.Web.UI.Page
 			}
 			else//否则转向首页
 			{
-				Response.Redirect("~/successLogin.aspx");
+				Response.Redirect("successLogin.aspx");
 			}
 		}
 		else
