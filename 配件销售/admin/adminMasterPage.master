@@ -30,8 +30,9 @@
                                 <asp:TreeNode Text="管理员信息维护" Value="管理员信息维护"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="商品管理" Value="商品管理">
-                                <asp:TreeNode Text="商品增加" Value="商品增加"></asp:TreeNode>
+                                <asp:TreeNode Text="商品增加" Value="商品增加" NavigateUrl="addProducts.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="商品信息修改" Value="商品信息修改"></asp:TreeNode>
+                                <asp:TreeNode Text="商品查询" Value="商品查询" NavigateUrl="selectProducts.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="图片管理" Value="图片管理">
                                 <asp:TreeNode Text="图片上传" Value="图片上传" NavigateUrl="UploadImg.aspx"></asp:TreeNode>
