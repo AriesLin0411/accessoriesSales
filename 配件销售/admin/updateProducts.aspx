@@ -15,9 +15,13 @@
      <table style="width: 100%;text-align:center;">
         <tr>
             <td width="20%">&nbsp;</td>
-            <td width="80%">&nbsp;
-
-                商品增加</td>
+            <td width="80%">&nbsp; 商品信息修改</td>
+        </tr>
+         <tr>
+            <td>商品编号</td>
+            <td>
+                <asp:TextBox ID="txtId" runat="server" ReadOnly="True"></asp:TextBox>
+            </td>
         </tr>
         <tr>
             <td>商品名称</td>
@@ -45,7 +49,7 @@
             <td>
                 <asp:DropDownList ID="ddlClass" runat="server" DataSourceID="SqlDataSource1" DataTextField="cName" DataValueField="cId">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db17135111ConnectionString %>" SelectCommand="SELECT * FROM [Class]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db17135111ConnectionString %>" SelectCommand="SELECT [cId], [cName] FROM [Class]"></asp:SqlDataSource>
                 <asp:Button ID="btnAddclass" runat="server" OnClick="btnAddclass_Click" Text="增加类别" />
             </td>
         </tr>
@@ -54,7 +58,7 @@
             <td class="auto-style1">
                 <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
                 <asp:ImageButton ID="imgbtnCalendar" runat="server" ImageUrl="~/images/calendar alt-fill.png" OnClick="imgbtnCalendar_Click" ImageAlign="AbsMiddle" />
-                <br /><div style="margin: 0px auto 0px auto;display:inline-block;">
+                <br /><div style="margin: 0px auto 0px auto;display:inline-block;" aria-sort="none">
                 <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" OnSelectionChanged="Calendar1_SelectionChanged" Width="220px">
                     <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                     <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
@@ -81,7 +85,7 @@
         <tr>
             <td>&nbsp;</td>
             <td>&nbsp;
-                <asp:Button ID="btnSubmmit" runat="server" Text="增加" OnClick="btnSubmmit_Click" />
+                <asp:Button ID="btnSubmmit" runat="server" Text="修改" OnClick="btnSubmmit_Click" />
                 <asp:Button ID="btnReset" runat="server" Text="重置" />
                 <asp:Label ID="lblMsg" runat="server"></asp:Label>
             </td>

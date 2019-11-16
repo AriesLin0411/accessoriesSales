@@ -24,9 +24,9 @@ public partial class admin_selectProducts : System.Web.UI.Page
 		string deleteStr2 = ConfigurationManager.ConnectionStrings["db17135111ConnectionString"].ConnectionString;
 		SqlConnection connection = new SqlConnection(deleteStr2);
 
-		String cmd = "delete from Products where pID=@deleteID";
+		String cmd = "delete from admin where adminName=@deleteName";
 		SqlCommand mycmd = new SqlCommand(cmd, connection);
-		mycmd.Parameters.AddWithValue("@deleteID", e.CommandArgument);
+		mycmd.Parameters.AddWithValue("@deleteName", e.CommandArgument);
 		mycmd.Connection = connection;
 		mycmd.Connection.Open();
 		try
@@ -43,13 +43,13 @@ public partial class admin_selectProducts : System.Web.UI.Page
 		}
 		mycmd.Connection.Close();
 		//Response.Write("<script>alert('删除成功!')</script>");
-		Response.Redirect("selectProducts.aspx");
+		Response.Redirect("selectAdmin.aspx");
 
 	}
 	//修改记录
 	protected void Button_Update(object sender, CommandEventArgs e)
 	{
-		Response.Redirect("updateProducts.aspx?id=" + e.CommandArgument.ToString() + "&url=" + Request.RawUrl);
+		Response.Redirect("updateAdmin.aspx?name=" + e.CommandArgument.ToString() + "&url=" + Request.RawUrl);
 	}
 	//批量删除记录
 	protected void Button_BatchDelete(object sender, CommandEventArgs e)
@@ -62,11 +62,11 @@ public partial class admin_selectProducts : System.Web.UI.Page
 			CheckBox chk1 = ListView1.Items[i].FindControl("CheckBox1") as CheckBox;
 			if (chk1.Checked)
 			{
-				string deleteID = (ListView1.Items[i].FindControl("pIDLabel") as Label).Text;
-				String cmd = "delete from Products where pID=@deleteID";
+				string deleteID = (ListView1.Items[i].FindControl("adminNameLabel") as Label).Text;
+				String cmd = "delete from admin where adminName=@deleteName";
 				SqlCommand mycmd = new SqlCommand(cmd, connection);
 				mycmd.Connection = connection;
-				mycmd.Parameters.AddWithValue("@deleteID", deleteID);
+				mycmd.Parameters.AddWithValue("@deleteName", deleteID);
 				try
 				{
 					mycmd.ExecuteNonQuery();
@@ -78,7 +78,7 @@ public partial class admin_selectProducts : System.Web.UI.Page
 				}
 			}
 		}
-		Response.Redirect("selectProducts.aspx");
+		Response.Redirect("selectAdmin.aspx");
 
 
 	}
@@ -90,17 +90,12 @@ public partial class admin_selectProducts : System.Web.UI.Page
 		string cmd1;
 		if (txtSelectValue.Text.Trim().Length == 0)//没有输入关键字，则
 		{
-			if (ddlClass.SelectedValue == "0")//选择了所有类别，则查所有商品
-				cmd1 = "SELECT [pID], [pNAME], [pIMG], [pPRICE], [pCLASSID], [pTIME] FROM [Products]";
-			else//选择了某一类别，则查该类别的所有商品
-				cmd1 = "SELECT [pID], [pNAME], [pIMG], [pPRICE], [pCLASSID], [pTIME] FROM [Products] where pCLASSID=" + ddlClass.SelectedValue;
+			cmd1 = null;
+			Response.Write("请输入关键词");
 		}
 		else//输入了关键字，则
 		{
-			if (ddlClass.SelectedValue == "0")//选择了所有类别，则在所有商品中查商品名包含该关键字的商品
-				cmd1 = "SELECT [pID], [pNAME], [pIMG], [pPRICE], [pCLASSID], [pTIME] FROM [Products] where pNAME like '%" + txtSelectValue.Text.Trim() + "%'";
-			else//选择了某一类别，则在该类别中查商品名包含该关键字的商品
-				cmd1 = "SELECT [pID], [pNAME], [pIMG], [pPRICE], [pCLASSID], [pTIME] FROM [Products] where pCLASSID=" + ddlClass.SelectedValue + " and pNAME like '%" + txtSelectValue.Text.Trim() + "%'";
+		cmd1 = "SELECT [adminName], [adminSex], [adminPhonenumber], [adminEmail] FROM [admin] where adminName like '%" + txtSelectValue.Text.Trim() + "%'";
 		}
 		//Response.Write(strcmd);
 		Session["selectCmd"] = cmd1;

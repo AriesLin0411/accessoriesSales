@@ -27,7 +27,7 @@
                         <Nodes>
                             <asp:TreeNode Text="管理员管理" Value="管理员管理">
                                 <asp:TreeNode Text="添加管理员" Value="添加管理员" NavigateUrl="Register.aspx"></asp:TreeNode>
-                                <asp:TreeNode Text="管理员信息维护" Value="管理员信息维护"></asp:TreeNode>
+                                <asp:TreeNode Text="管理员信息维护" Value="管理员信息维护" NavigateUrl="selectAdmin.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="商品管理" Value="商品管理">
                                 <asp:TreeNode Text="商品增加" Value="商品增加" NavigateUrl="addProducts.aspx"></asp:TreeNode>

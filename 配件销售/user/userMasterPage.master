@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="userMasterPage.master.cs" Inherits="user_userMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 100%;">
+            <tr>
+                <td>&nbsp;
+                    <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                    <asp:LinkButton ID="lkbtnLoginandlogout" runat="server" OnClick="lkbtnLoginandlogout_Click">登录</asp:LinkButton>
+                    <asp:HyperLink ID="hplkRegister" runat="server" NavigateUrl="~/user/register.aspx">注册</asp:HyperLink><br/>
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="default.aspx" Text="首页" Value="首页"></asp:MenuItem>
+                            <asp:MenuItem Text="搜索" Value="搜索"></asp:MenuItem>
+                            <asp:MenuItem Text="我的购物车" Value="我的购物车"></asp:MenuItem>
+                            <asp:MenuItem Text="我的订单" Value="我的订单"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;版权所有</td>
+            </tr>
+        </table>
+        
+    </div>
+    </form>
+</body>
+</html>
