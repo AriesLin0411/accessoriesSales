@@ -7,7 +7,7 @@
         <tr>
             <td width="20%" valign="top">
                 <p></p>
-                <p><a href="showCart.aspx">我的购物车</a></p>
+                <p><a href="showShopcar.aspx">我的购物车</a></p>
                 <p><a href="showOrders.aspx">我的订单</a></p>
                 <p></p>
             </td>

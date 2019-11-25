@@ -119,14 +119,14 @@ public partial class user_showShopcar : System.Web.UI.Page
 		string datetime=DateTime.Now.ToString("yyyyMMddHHmmss");
 		return username + datetime;
 	}
-	protected void createOrder(string oderId,string username)
+	protected void createOrder(string orderId,string username)
 	{
 		string createStr = ConfigurationManager.ConnectionStrings["db17135111ConnectionString"].ConnectionString;
 		SqlConnection connection = new SqlConnection(createStr);
 		string sqlString = "insert into orders(orderId,userName,datetime,totalPrice,status)values(@orderId,@userName,@datetime,@totalPrice,@status)";
 		SqlCommand createCmd = new SqlCommand(sqlString, connection);
 		createCmd.Parameters.AddWithValue("@userName", username);
-		createCmd.Parameters.AddWithValue("@oderId", oderId);
+		createCmd.Parameters.AddWithValue("@orderId", orderId);
 		createCmd.Parameters.AddWithValue("@datetime", DateTime.Now.ToString());
 		createCmd.Parameters.AddWithValue("totalPrice", lblPrice.Text);
 		createCmd.Parameters.AddWithValue("@status", "未付款");
@@ -148,7 +148,7 @@ public partial class user_showShopcar : System.Web.UI.Page
 				txtNum = ListView1.Items[i].FindControl("txtNum") as TextBox;
 				createCmd.Parameters.Clear();
 				createCmd.Parameters.AddWithValue("@pID",lblId.Text);
-				createCmd.Parameters.AddWithValue("@oderId",oderId);
+				createCmd.Parameters.AddWithValue("@orderId",orderId);
 				createCmd.Parameters.AddWithValue("@number",txtNum.Text);
 				createCmd.Parameters.AddWithValue("@totalPrice",lblPrice.Text);
 				createCmd.ExecuteNonQuery();
@@ -161,7 +161,6 @@ public partial class user_showShopcar : System.Web.UI.Page
 		}
 		catch(Exception ee)
 		{
-			tran.Rollback();
 			Response.Write(ee.Message);
 		}
 		finally

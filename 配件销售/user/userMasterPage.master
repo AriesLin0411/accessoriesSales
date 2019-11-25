@@ -31,7 +31,7 @@
                             <asp:MenuItem NavigateUrl="default.aspx" Text="首页" Value="首页"></asp:MenuItem>
                             <asp:MenuItem Text="搜索" Value="搜索"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="showShopcar.aspx" Text="我的购物车" Value="我的购物车"></asp:MenuItem>
-                            <asp:MenuItem Text="我的订单" Value="我的订单"></asp:MenuItem>
+                            <asp:MenuItem Text="我的订单" Value="我的订单" NavigateUrl="showOders.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </td>
