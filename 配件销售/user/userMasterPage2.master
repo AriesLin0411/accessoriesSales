@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="userMasterPage.master.cs" Inherits="user_userMasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="userMasterPage2.master.cs" Inherits="user_userMasterPage" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <title></title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
+     <style type="text/css">
         .auto-style1 {
             width: 1045px;
         }
@@ -37,7 +37,7 @@
                 </td>
             </tr>
             </table>
-        <table style="width: 100%;text-align:center;">
+           <table style="width: 100%;text-align:center;">
             <tr>
                 <td>
                     <asp:TextBox ID="txtSelect" runat="server" Height="37px" Width="265px"></asp:TextBox><asp:Button ID="btnSelect" runat="server" Text="搜索" BackColor="#FFCCCC" ForeColor="White" Height="40px" Width="75px" OnClick="btnSelect_Click" />
@@ -45,34 +45,11 @@
                 </td>
             </tr>
             </table>
-        <table  border="1" cellspacing="0" cellpadding="0" style="width: 100%;border:solid 5px;">
-            <tr>
-                <td width="20%">
-                    <asp:ListView ID="ListView1" runat="server" DataKeyNames="cId" DataSourceID="SqlDataSource1">
-                    <ItemTemplate>
-                        <a href="showlistProducts.aspx?type=<%# Eval("cId") %>&name=<%# Eval("cName") %>"><%# Eval("cName") %></a><br/>
-                        <br />
-<br />
-                    </ItemTemplate>
-                    <LayoutTemplate>
-                        <div id="itemPlaceholderContainer" runat="server" style="">
-                            <span runat="server" id="itemPlaceholder" />
-                        </div>
-                        <div style="">
-                        </div>
-                    </LayoutTemplate>
-                </asp:ListView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db17135111ConnectionString %>" SelectCommand="SELECT [cId], [cName] FROM [Class]"></asp:SqlDataSource>
-                </td>
-                <td valign="top">
 &nbsp;
                     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
                     </asp:ContentPlaceHolder>
-                </td>
-            </tr>
-            </table>
-        <table style="width: 100%;text-align:center;">
+       <table style="width: 100%;text-align:center;">
             <tr>
                 <td>
 2019-现在 版权所有

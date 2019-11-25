@@ -7,12 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
-<body>
+<body style="background-color:cornflowerblue;">
     <form id="form1" runat="server">
         <div>
             <div>
                 用户注册</div>
-            <asp:Table ID="Table1" runat="server" Width="728px" Height="350px">
+            <center>
+            <asp:Table ID="Table1" runat="server" Width="728px" Height="350px" BackColor="GhostWhite">
                 <asp:TableRow runat="server">
                     <asp:TableCell runat="server">手机号:</asp:TableCell>
                     <asp:TableCell runat="server">
@@ -69,15 +70,21 @@
                 </asp:TableRow>
                 <asp:TableRow runat="server">
                     <asp:TableCell runat="server">
-                        <asp:Button ID="btnSubmit" runat="server" Text="注册" OnClick="btnSubmit_Click" />
+                        
                     </asp:TableCell>
-                    <asp:TableCell runat="server">
+                    <asp:TableCell runat="server"><asp:Button ID="btnSubmit" runat="server" Text="注册" OnClick="btnSubmit_Click" />
                         <asp:Button ID="btnReset" runat="server" Text="重置" OnClick="btnReset_Click" CausesValidation="False" />
                     </asp:TableCell>
                 </asp:TableRow>
+                <asp:TableRow runat="server">
+                    <asp:TableCell runat="server">
+                    </asp:TableCell>
+                    <asp:TableCell runat="server"><asp:HyperLink ID="hlkLogin" runat="server" NavigateUrl="Login.aspx">已有帐号,直接登录</asp:HyperLink>
+                    </asp:TableCell>
+                </asp:TableRow>
             </asp:Table>
+                </center>
         </div>
-        <asp:HyperLink ID="hlkLogin" runat="server" NavigateUrl="Login.aspx">已有帐号,直接登录</asp:HyperLink>
     </form>
 </body>
 </html>

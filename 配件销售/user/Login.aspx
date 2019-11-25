@@ -11,20 +11,20 @@
          height: 100%;
   }
       .auto-style2 {
-          width: 399px;
+          width: 164px;
           text-align:right;
           height: 34px;
       }
       .auto-style4 {
           height: 57px;
-          width: 399px;
+          width: 164px;
           text-align:right;
       }
       .auto-style5 {
           height: 57px;
       }
       .auto-style6 {
-          width: 399px;
+          width: 164px;
           height: 54px;
           text-align:right;
       }
@@ -32,7 +32,7 @@
           height: 54px;
       }
       .auto-style10 {
-          width: 399px;
+          width: 164px;
           height: 30px;
           text-align:right;
       }
@@ -43,10 +43,12 @@
           height: 10%;
           width: 100%;
           margin-top: 31px;
+          text-align:right;
       }
       .auto-style13 {
           height: 70%;
           width: 100%;
+          background-color:cornflowerblue;
       }
       .auto-style14 {
           height: 50px;
@@ -61,7 +63,7 @@
           cursor: pointer;
       }
       .auto-style17 {
-          width: 399px;
+          width: 164px;
           height: 43px;
           text-align: right;
       }
@@ -69,7 +71,7 @@
           height: 43px;
       }
       .auto-style19 {
-          width: 399px;
+          width: 164px;
           height: 48px;
           text-align: right;
       }
@@ -79,17 +81,19 @@
       .auto-style21 {
           height: 382px;
           width: 100%;
+          background-color:cornflowerblue;
       }
   </style>
 </head>
-<body >
+<body style="background-color:cornflowerblue;">
     <form id="form1" runat="server">
         <div class="auto-style21">
 
             <div style="height: 20%; width: 100%;text-align:center;font-size:30px;">
                 用户登录</div>
             <div class="auto-style13">
-                <table style="margin: 0px auto 0px auto; width: 60%;">
+                <center>
+                <table style="margin: 0px auto 0px auto; width: 40%;background-color:#F8F8FF;">
                     <tr>
                         <td class="auto-style6">用户名/手机号:</td>
                         <td class="auto-style7"><asp:TextBox ID="txtUsername" runat="server" Height="29px"></asp:TextBox>
@@ -124,9 +128,18 @@
                             <input id="btnReset" type="reset" value="重置" class="auto-style15" /></td>
                         
                     </tr>
+                    <tr>
+                        <td >
+                           
+                        </td>
+                        <td > <a href="register.aspx">免费注册</a></td>
+                        
+                    </tr>
                 </table>
+                    </center>
             </div>
             <div class="auto-style12">
+                2019-现在 版权所有
             </div>
         </div>
     </form>

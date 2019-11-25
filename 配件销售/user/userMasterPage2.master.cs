@@ -26,7 +26,6 @@ public partial class user_userMasterPage : System.Web.UI.MasterPage
 		if (lkbtnLoginandlogout.Text == "登录")
 		{
 			Response.Redirect("Login.aspx");
-			
 		}
 		else
 		{
@@ -34,7 +33,6 @@ public partial class user_userMasterPage : System.Web.UI.MasterPage
 			Response.Redirect("default.aspx");
 		}
 	}
-
 	protected void btnSelect_Click(object sender, EventArgs e)
 	{
 		string ss = txtSelect.Text.ToString().Trim();
