@@ -1,18 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="adminMasterPage.master" AutoEventWireup="true" CodeFile="addProducts.aspx.cs" Inherits="admin_addProducts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="MasterPage.master" AutoEventWireup="true" CodeFile="addProducts.aspx.cs" Inherits="admin_addProducts" %>
+
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .auto-style1 {
             height: 221px;
-            text-align:center;
+            text-align: center;
         }
-    .auto-style2 {
-        height: 27px;
-    }
+
+        .auto-style2 {
+            height: 27px;
+        }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table style="width: 100%;text-align:center;">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table style="width: 100%; text-align: center;">
         <tr>
             <td width="20%">&nbsp;</td>
             <td width="80%">&nbsp;
@@ -54,17 +56,19 @@
             <td class="auto-style1">
                 <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
                 <asp:ImageButton ID="imgbtnCalendar" runat="server" ImageUrl="~/images/calendar alt-fill.png" OnClick="imgbtnCalendar_Click" ImageAlign="AbsMiddle" />
-                <br /><div style="margin: 0px auto 0px auto;display:inline-block;">
-                <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" OnSelectionChanged="Calendar1_SelectionChanged" Width="220px">
-                    <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
-                    <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-                    <OtherMonthDayStyle ForeColor="#999999" />
-                    <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                    <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
-                    <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
-                    <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-                    <WeekendDayStyle BackColor="#CCCCFF" />
-                    </asp:Calendar></div>
+                <br />
+                <div style="margin: 0px auto 0px auto; display: inline-block;">
+                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" OnSelectionChanged="Calendar1_SelectionChanged" Width="220px">
+                        <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
+                        <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                        <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
+                        <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
+                        <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+                        <WeekendDayStyle BackColor="#CCCCFF" />
+                    </asp:Calendar>
+                </div>
             </td>
         </tr>
         <tr>

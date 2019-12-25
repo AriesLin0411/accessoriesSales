@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userMasterPage3.master" AutoEventWireup="true" CodeFile="showOrderdetails.aspx.cs" Inherits="user_showOrderdetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/MasterPage.master" AutoEventWireup="true" CodeFile="showOrderdetails.aspx.cs" Inherits="user_showOrderdetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="orderId,pID" DataSourceID="SqlDataSource1">

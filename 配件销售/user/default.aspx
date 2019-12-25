@@ -1,9 +1,101 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userMasterPage.master" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="user_default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/MasterPage.master" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="user_default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table style="width: 100%;">
+    <!-- Banners Area -->
+        <div class="banners-area pb-30 bg-grey">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <!-- Category Menu -->
+                        <div class="catmenu catmenu-2 mt-30">
+                            <button class="catmenu-trigger is-active">
+                                <span>分类</span>
+                            </button>
+                            <nav class="catmenu-body">
+                                <ul>
+                                    <li ><a href="showlistProducts.aspx?type=1&name=显卡"><i class="ion ion-ios-power"></i>显卡</a></li>
+                                    <li ><a href="showlistProducts.aspx?type=2&name=CPU"><i class="ion ion-md-headset"></i>CPU</a></li>
+                                    <li ><a href="showlistProducts.aspx?type=3&name=主板"><i class="ion ion-ios-infinite"></i>主板</a></li>
+                                    <li><a href="showlistProducts.aspx?type=4&name=机箱"><i class="ion ion-logo-game-controller-b"></i>机箱</a></li>
+                                    <li><a href="showlistProducts.aspx?type=5&name=显示器"><i class="ion ion-ios-tablet-landscape"></i>显示器</a></li>
+                                    <li><a href="showlistProducts.aspx?type=6&name=内存条"><i class="ion ion-ios-volume-high"></i>内存条</a></li>
+                                    <li><a href="showlistProducts.aspx?type=7&name=固态硬盘"><i class="ion ion-ios-desktop"></i>固态硬盘</a></li>
+                                    <li><a href="showlistProducts.aspx?type=8&name=机械硬盘"><i class="ion ion-md-watch"></i>机械硬盘</a></li>
+                                    <li><a href="showlistProducts.aspx?type=9&name=声卡"><i class="ion ion-ios-camera"></i>声卡</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=网卡"><i class="ion ion-ios-desktop"></i>网卡</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=风冷散热器"><i class="ion ion-md-watch"></i>风冷散热器</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=水冷散热器"><i class="ion ion-ios-camera"></i>水冷散热器</a></li>
+                                    <li class="catmenu-moretrigger"><a href="#"><i class="ion ion-ios-more"></i>更多分类</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--// Category Menu -->
+                    </div>
+
+                    <div class="col-lg-9">
+                        <!-- Hero Area -->
+                        <div class="herobanner herobanner-3 slider-navigation slider-dots mt-30">
+
+                            <!-- Herobanner Single -->
+                            <div class="herobanner-single">
+                                <img src="img/1.png" alt="hero image">
+                                <div class="herobanner-content">
+                                    <div class="herobanner-box">
+                                        <h1>星驰电掣</h1>
+                                    </div>
+                                    <div class="herobanner-box">
+                                        <h1>气吞山河</h1>
+                                    </div>
+                                    <div class="herobanner-box">
+                                        <h3>MSI</h3>
+                                    </div>
+                                </div>
+                                <span class="herobanner-progress"></span>
+                            </div>
+                            <!--// Herobanner Single -->
+
+                            <!-- Herobanner Single -->
+                            <div class="herobanner-single">
+                                <img src="img/2.png" alt="hero image">
+                                <span class="herobanner-progress"></span>
+                            </div>
+                            <!--// Herobanner Single -->
+
+                        </div>
+                        <!--// Hero Area -->
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="imgbanner mt-30">
+                            <a href="#">
+                                <img src="img/3.png" alt="banner">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="imgbanner mt-30">
+                            <a href="#">
+                                <img src="img/4.png" alt="banner">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="imgbanner mt-30">
+                            <a href="#">
+                                <img src="img/5.png" alt="banner">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Banners Area -->
+    <center>
+    <table style="width: 70%;">
         <tr>
             <td>&nbsp;
                 最新商品<hr/>
@@ -45,5 +137,6 @@
             </td>
         </tr>
     </table>
+        <center>
 </asp:Content>
 

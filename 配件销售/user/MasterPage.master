@@ -1,0 +1,275 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="user_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>装机配件销售平台</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/icon.png">
+
+    <!-- Google font (font-family: 'Roboto', sans-serif;) -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugins.css">
+
+    <!-- Style Css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/custom.css">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+            <div id="wrapper" class="wrapper">
+
+        <!-- Header -->
+        <header class="header header-3">
+
+            <!-- Header Top Area -->
+            <div class="header-top bg-theme">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-12">
+                            <p class="header-welcomemsg">欢迎光临 <span>装机配件</span> 商城 !</p>
+                        </div>
+                        
+                    
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-12">
+                            <div class="header-langcurr">
+<asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                                
+    <asp:LinkButton ID="lkbtnLoginandlogout" runat="server" OnClick="lkbtnLoginandlogout_Click" CausesValidation="False">登录</asp:LinkButton>
+                    <asp:HyperLink ID="hplkRegister" runat="server" NavigateUrl="~/user/register.aspx">注册</asp:HyperLink>                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Header Top Area -->
+
+            <!-- Header Middle Area -->
+            <div class="header-middle bg-theme">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1">
+                            <a href="default.aspx" class="header-logo">
+                                <img src="images/logo/CPU (1).png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-12 order-3 order-lg-2">
+                            <asp:TextBox ID="txtSelect" runat="server" Height="37px" Width="265px"></asp:TextBox><asp:Button ID="btnSelect" runat="server" Text="搜索" BackColor="#FFCCCC" ForeColor="White" Height="40px" Width="75px" OnClick="btnSelect_Click" />
+ <div class="catmenu catmenu-2 mt-30">
+                            <button class="catmenu-trigger">
+                                <span>分类</span>
+                            </button>
+                            <nav class="catmenu-body" style="display:none;">
+                                <ul >
+                                    <li ><a href="showlistProducts.aspx?type=1&name=显卡"><i class="ion ion-ios-power"></i>显卡</a></li>
+                                    <li ><a href="showlistProducts.aspx?type=2&name=CPU"><i class="ion ion-md-headset"></i>CPU</a></li>
+                                    <li ><a href="showlistProducts.aspx?type=3&name=主板"><i class="ion ion-ios-infinite"></i>主板</a></li>
+                                    <li><a href="showlistProducts.aspx?type=4&name=机箱"><i class="ion ion-logo-game-controller-b"></i>机箱</a></li>
+                                    <li><a href="showlistProducts.aspx?type=5&name=显示器"><i class="ion ion-ios-tablet-landscape"></i>显示器</a></li>
+                                    <li><a href="showlistProducts.aspx?type=6&name=内存条"><i class="ion ion-ios-volume-high"></i>内存条</a></li>
+                                    <li><a href="showlistProducts.aspx?type=7&name=固态硬盘"><i class="ion ion-ios-desktop"></i>固态硬盘</a></li>
+                                    <li><a href="showlistProducts.aspx?type=8&name=机械硬盘"><i class="ion ion-md-watch"></i>机械硬盘</a></li>
+                                    <li><a href="showlistProducts.aspx?type=9&name=声卡"><i class="ion ion-ios-camera"></i>声卡</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=网卡"><i class="ion ion-ios-desktop"></i>网卡</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=风冷散热器"><i class="ion ion-md-watch"></i>风冷散热器</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=水冷散热器"><i class="ion ion-ios-camera"></i>水冷散热器</a></li>
+                                    <li class="catmenu-moretrigger"><a href="#"><i class="ion ion-ios-more"></i>更多分类</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
+                            <div class="header-icons">
+                                
+                                <div class="header-cart">
+                                     <a href="default.aspx"><img src="img/home.png"></a>
+                                    <a href="showOrders.aspx"><img src="img/edit (1).png"></a>
+                                    <a href="showShopcar.aspx"><img src="img/cart_light.png"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Header Middle Area -->
+
+        </header>
+        <!--// Header -->
+                    <table height="800px" style="clip: rect(0px, auto, auto, auto);border:0;"><tr><td valign="top">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                    </td> </tr> </table>  
+        <!-- Quickview Modal -->
+        <div class="quickmodal">
+            <div class="body-overlay"></div>
+            <button class="quickmodal-close"><i class="ion ion-ios-close"></i></button>
+            <div class="quickmodal-inside">
+                <div class="container">
+                    <div class="pdetails">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="pdetails-images">
+                                    <div class="pdetails-largeimages">
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-1.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-2.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-3.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-4.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-1.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-2.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-3.jpg" alt="product image">
+                                        </div>
+                                        <div class="pdetails-singleimage">
+                                            <img src="images/product/lg/product-image-4.jpg" alt="product image">
+                                        </div>
+                                    </div>
+
+                                    <div class="pdetails-thumbs">
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-1.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-2.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-3.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-4.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-1.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-2.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-3.jpg" alt="product thumb">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img src="images/product/thumbnail/product-image-4.jpg" alt="product thumb">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="pdetails-content">
+
+                                    <div class="rattingbox">
+                                        <span class="active"><i class="ion ion-ios-star"></i></span>
+                                        <span class="active"><i class="ion ion-ios-star"></i></span>
+                                        <span class="active"><i class="ion ion-ios-star"></i></span>
+                                        <span class="active"><i class="ion ion-ios-star"></i></span>
+                                        <span class="active"><i class="ion ion-ios-star"></i></span>
+                                    </div>
+                                    <h3>SonicFuel Wireless Over-Ear Headphones</h3>
+                                    <div class="pdetails-pricebox">
+                                        <del class="oldprice">$35.90</del>
+                                        <span class="price">$34.11</span>
+                                        <span class="badge">Save 5%</span>
+                                    </div>
+                                    <p>The ATH-S700BT offers clear, full-bodied audio reproduction with Bluetooth®
+                                        wireless operation. The headphones are equipped with a mic, and music and
+                                        volume controls, allowing you to easily answer calls..</p>
+                                    <div class="pdetails-quantity">
+                                        <div class="quantity-select">
+                                            <input type="text" value="1">
+                                            <div class="inc qtybutton">+<i class="ion ion-ios-arrow-up"></i></div>
+                                            <div class="dec qtybutton">-<i class="ion ion-ios-arrow-down"></i></div>
+                                        </div>
+                                        <a href="shop-rightsidebar.html" class="ho-button">
+                                            <i class="lnr lnr-cart"></i>
+                                            <span>Add to cart</span>
+                                        </a>
+                                    </div>
+                                    <div class="pdetails-color">
+                                        <span>Color :</span>
+                                        <ul>
+                                            <li class="red"><span></span></li>
+                                            <li class="green checked"><span></span></li>
+                                            <li class="blue"><span></span></li>
+                                            <li class="black"><span></span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pdetails-size">
+                                        <span>Size :</span>
+                                        <ul>
+                                            <li class="checked"><span>S</span></li>
+                                            <li><span>M</span></li>
+                                            <li><span>L</span></li>
+                                            <li><span>XL</span></li>
+                                            <li><span>XXL</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pdetails-categories">
+                                        <span>Categories :</span>
+                                        <ul>
+                                            <li><a href="shop-rightsidebar.html">Accessories</a></li>
+                                            <li><a href="shop-rightsidebar.html">Kids</a></li>
+                                            <li><a href="shop-rightsidebar.html">Women</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pdetails-tags">
+                                        <span>Tags :</span>
+                                        <ul>
+                                            <li><a href="shop-rightsidebar.html">Electronic</a></li>
+                                            <li><a href="shop-rightsidebar.html">Television</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pdetails-socialshare">
+                                        <span>Share :</span>
+                                        <ul>
+                                            <li><a href="#"><i class="ion ion-logo-facebook"></i></a></li>
+                                            <li><a href="#"><i class="ion ion-logo-twitter"></i></a></li>
+                                            <li><a href="#"><i class="ion ion-logo-googleplus"></i></a></li>
+                                            <li><a href="#"><i class="ion ion-logo-pinterest"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Quickview Modal -->
+
+       
+    </div> 
+    </form>
+    <!-- Js Files -->
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

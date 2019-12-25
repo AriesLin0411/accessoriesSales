@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userMasterPage3.master" AutoEventWireup="true" CodeFile="showOrders.aspx.cs" Inherits="user_showOrders" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/MasterPage.master" AutoEventWireup="true" CodeFile="showOrders.aspx.cs" Inherits="user_showOrders" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="orderId,userName" DataSourceID="SqlDataSource1">
         <ItemTemplate>
             <tr style="">
@@ -24,7 +24,7 @@
                     <asp:Button ID="Button3" runat="server" Text="评价" CommandName="btnComment" OnCommand="Button_Comment"
                         CommandArgument='<%# Eval("orderId") %>' Visible='<%# Eval("status").ToString() == "待评价"?true:false %>' />
                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("status") %>' Visible='<%# (Eval("status").ToString() == "未付款" || Eval("status").ToString() == "待收货" || Eval("status").ToString() == "待评价")?false:true %>' />
-                
+
                 </td>
                 <td>
                     <a href='showOrderdetails.aspx?id=<%# Eval("orderId") %>'>详情</a>
@@ -41,7 +41,9 @@
                                 <th runat="server">用户名</th>
                                 <th runat="server">时间</th>
                                 <th runat="server">价格</th>
-                                <th runat="server"> <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Sort" CommandArgument="status">订单状态</asp:LinkButton> </th>
+                                <th runat="server">
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="Sort" CommandArgument="status">订单状态</asp:LinkButton>
+                                </th>
                                 <th runat="server">订单详情</th>
                             </tr>
                             <tr id="itemPlaceholder" runat="server">

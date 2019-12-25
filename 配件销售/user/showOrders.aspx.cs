@@ -34,10 +34,7 @@ public partial class user_showOrders : System.Web.UI.Page
 	private bool Payment(string uname, string orderid)
 	{
 		bool successflag = false;
-		/***********************/
-		/*  付款的代码写在此   */
-		/**********************/
-		//付款成功后修改订单状态
+		Response.Redirect("pagepay.aspx?orderid="+orderid);
 		successflag = updateOrderState(orderid, "已付款");
 		return successflag;
 	}
@@ -92,8 +89,8 @@ public partial class user_showOrders : System.Web.UI.Page
 	{
 		string orderId = e.CommandArgument.ToString();//订单号
 		string username = Session["username1"].ToString();//用户名
-												   //一般要转向另一页面进行评价，在此仅模拟评价完成后修改订单状态的过程，
-												   //在此以下代码仅是进行测试
+											   //一般要转向另一页面进行评价，在此仅模拟评价完成后修改订单状态的过程，
+											   //在此以下代码仅是进行测试
 		if (updateOrderState(orderId, "交易完成"))//修改订单状态为 交易完成
 		{
 			Page.RegisterStartupScript("kk", "<script>alert('交易完成ok');</script>");
@@ -102,6 +99,7 @@ public partial class user_showOrders : System.Web.UI.Page
 		{
 			Page.RegisterStartupScript("kk", "<script>alert('交易完成 not ok');</script>");
 		}
+		Response.Redirect("pj.aspx?id=" + orderId);	
 		ListView1.DataBind();//重新绑定listview1
 	}
 

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userMasterPage.master" AutoEventWireup="true" CodeFile="showlistProducts.aspx.cs" Inherits="user_showlistProducts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/MasterPage.master" AutoEventWireup="true" CodeFile="showlistProducts.aspx.cs" Inherits="user_showlistProducts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table style="width: 100%;">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server"><center>
+<table style="width: 70%;">
         <tr>
             <td>&nbsp;
                 所有"<%=Request.QueryString["name"] %>"类商品
@@ -50,5 +50,6 @@
             </td>
         </tr>
     </table>
+   </center> 
 </asp:Content>
 

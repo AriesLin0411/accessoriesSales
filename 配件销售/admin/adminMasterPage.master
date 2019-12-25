@@ -4,55 +4,60 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="color:white;font-family:Arial,Microsoft YaHei,黑体,宋体,sans-serif;">
+<body style="color: white; font-family: Arial,Microsoft YaHei,黑体,宋体,sans-serif;">
     <form id="form1" runat="server">
-    <div style="width:100%;text-align:center;">
-        <table style="width:100%;border:1px;">
-            <tr style="height: 100px">
-                <td width="15%" style="background-color: #332E55">logo</td>
-                <td style="background-color: #332E55"><h1 style="font-style:italic;">
-<font color="#00FFFF">P</font><font color="#00FFE6">C</font><font color="#00FFCD">配</font><font color="#00FFB4">件</font><font color="#00FF9B">销</font><font color="#00FF82">售</font><font color="#00FF69">管</font><font color="#00FF50">理</font><font color="#00FF37">平</font><font color="#00FF1E">台</font>                                                      </h1></td>
-            </tr>
-            <tr>
-                <td style="background-color: #2C2B4A">
-                    <asp:Label ID="lblAdmin" runat="server" ></asp:Label>
-                    <asp:LinkButton ID="lkbLogout" runat="server" OnClick="lkbLogout_Click">退出</asp:LinkButton>
-                    <asp:TreeView ID="TreeView1" runat="server" CollapseImageUrl="~/images/arrow_down.png" ExpandImageUrl="~/images/arrow_right.png" BackColor="#2C2B4A" Height="600px" NodeIndent="30">
-                        <LeafNodeStyle ForeColor="#CCCCCC" />
-                        <Nodes>
-                            <asp:TreeNode Text="管理员管理" Value="管理员管理">
-                                <asp:TreeNode Text="添加管理员" Value="添加管理员" NavigateUrl="Register.aspx"></asp:TreeNode>
-                                <asp:TreeNode Text="管理员信息维护" Value="管理员信息维护" NavigateUrl="selectAdmin.aspx"></asp:TreeNode>
-                            </asp:TreeNode>
-                            <asp:TreeNode Text="商品管理" Value="商品管理">
-                                <asp:TreeNode Text="商品增加" Value="商品增加" NavigateUrl="addProducts.aspx"></asp:TreeNode>
-                                <asp:TreeNode Text="商品信息修改" Value="商品信息修改"></asp:TreeNode>
-                                <asp:TreeNode Text="商品查询" Value="商品查询" NavigateUrl="selectProducts.aspx"></asp:TreeNode>
-                            </asp:TreeNode>
-                            <asp:TreeNode Text="图片管理" Value="图片管理">
-                                <asp:TreeNode Text="图片上传" Value="图片上传" NavigateUrl="UploadImg.aspx"></asp:TreeNode>
-                                <asp:TreeNode Text="图片维护" Value="图片维护"></asp:TreeNode>
-                            </asp:TreeNode>
-                            <asp:TreeNode Text="帮助" Value="帮助" NavigateUrl="Default.aspx"></asp:TreeNode>
-                        </Nodes>
-                        <NodeStyle ForeColor="White" Height="50px" />
-                        <ParentNodeStyle Height="50px" />
-                    </asp:TreeView>
-                </td>
-                <td style="background-color: #26283F">
-                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        <div style="width: 100%; text-align: center;">
+            <table style="width: 100%; border: 1px;">
+                <tr style="height: 100px">
+                    <td width="15%" style="background-color: #332E55">logo</td>
+                    <td style="background-color: #332E55">
+                        <h1 style="font-style: italic;">
+                            <font color="#00FFFF">P</font><font color="#00FFE6">C</font><font color="#00FFCD">配</font><font color="#00FFB4">件</font><font color="#00FF9B">销</font><font color="#00FF82">售</font><font color="#00FF69">管</font><font color="#00FF50">理</font><font color="#00FF37">平</font><font color="#00FF1E">台</font></h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: #2C2B4A">
+                        <asp:Label ID="lblAdmin" runat="server"></asp:Label>
+                        <asp:LinkButton ID="lkbLogout" runat="server" OnClick="lkbLogout_Click">退出</asp:LinkButton>
+                        <asp:TreeView ID="TreeView1" runat="server" CollapseImageUrl="~/images/arrow_down.png" ExpandImageUrl="~/images/arrow_right.png" BackColor="#2C2B4A" Height="600px" NodeIndent="30">
+                            <LeafNodeStyle ForeColor="#CCCCCC" />
+                            <Nodes>
+                                <asp:TreeNode Text="管理员管理" Value="管理员管理">
+                                    <asp:TreeNode Text="添加管理员" Value="添加管理员" NavigateUrl="Register.aspx"></asp:TreeNode>
+                                    <asp:TreeNode Text="管理员信息维护" Value="管理员信息维护" NavigateUrl="selectAdmin.aspx"></asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="商品管理" Value="商品管理">
+                                    <asp:TreeNode Text="商品增加" Value="商品增加" NavigateUrl="addProducts.aspx"></asp:TreeNode>
+                                    <asp:TreeNode Text="商品信息修改" Value="商品信息修改"></asp:TreeNode>
+                                    <asp:TreeNode Text="商品查询" Value="商品查询" NavigateUrl="selectProducts.aspx"></asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="图片管理" Value="图片管理">
+                                    <asp:TreeNode Text="图片上传" Value="图片上传" NavigateUrl="UploadImg.aspx"></asp:TreeNode>
+                                    <asp:TreeNode Text="图片维护" Value="图片维护"></asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="订单管理" Value="订单管理">
+                                    <asp:TreeNode NavigateUrl="editOrder.aspx" Text="发货管理" Value="发货管理"></asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="statOrder" Text="统计与输出" Value="统计与输出"></asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="帮助" Value="帮助" NavigateUrl="Default.aspx"></asp:TreeNode>
+                            </Nodes>
+                            <NodeStyle ForeColor="White" Height="50px" />
+                            <ParentNodeStyle Height="50px" />
+                        </asp:TreeView>
+                    </td>
+                    <td style="background-color: #26283F">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
 
-                     </asp:ContentPlaceHolder>
-                </td>
-            </tr>
-        </table>
-        
-    </div>
+        </div>
     </form>
 </body>
 </html>

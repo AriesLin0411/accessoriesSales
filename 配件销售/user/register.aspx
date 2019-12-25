@@ -4,14 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
-<body style="background-color:cornflowerblue;">
+<body style="background-color: cornflowerblue;">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <div>
-                用户注册</div>
+                用户注册
+            </div>
             <center>
             <asp:Table ID="Table1" runat="server" Width="728px" Height="350px" BackColor="GhostWhite">
                 <asp:TableRow runat="server">
@@ -25,9 +27,13 @@
                 <asp:TableRow runat="server">
                     <asp:TableCell runat="server">用户名:</asp:TableCell>
                     <asp:TableCell runat="server">
-                        <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+                        <asp:TextBox ID="txtUsername" runat="server" AutoPostBack="True" ontextchanged="txtUsername_TextChanged"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ErrorMessage="必填" ControlToValidate="txtUsername"></asp:RequiredFieldValidator>
-
+                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </ContentTemplate>
+</asp:UpdatePanel>
 </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow runat="server">

@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userMasterPage2.master" AutoEventWireup="true" CodeFile="showProducts.aspx.cs" Inherits="user_showProducts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/MasterPage.master" AutoEventWireup="true" CodeFile="showProducts.aspx.cs" Inherits="user_showProducts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <center>
     <table   border="1" cellspacing="0" cellpadding="0" style="width: 100%;border:solid 5px;width: 100%;">
         <tr>
             <td width="25%">&nbsp;
@@ -82,9 +83,59 @@ Type="Int32" />
                         <asp:QueryStringParameter Name="pID" QueryStringField="id" Type="Int32" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-
+<asp:ListView ID="ListView3" runat="server" DataKeyNames="orderid" DataSourceID="SqlDataSource3">
+    <EmptyDataTemplate>
+        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+            <tr>
+                <td>该商品暂无评价。</td>
+            </tr>
+        </table>
+    </EmptyDataTemplate>
+    <ItemTemplate>
+        <tr style="background-color: #E0FFFF;color: #333333;">
+            <td>
+                <asp:Label ID="spLabel" runat="server" Text='<%# Eval("sp") %>' />
+            </td>
+            <td>
+                <asp:Label ID="wlLabel" runat="server" Text='<%# Eval("wl") %>' />
+            </td>
+            <td>
+                <asp:Label ID="fwLabel" runat="server" Text='<%# Eval("fw") %>' />
+            </td>
+            <td>
+                <asp:Label ID="txtLabel" runat="server" Text='<%# Eval("txt") %>' />
             </td>
         </tr>
-    </table>
+    </ItemTemplate>
+    <LayoutTemplate>
+        <table runat="server">
+            <tr runat="server">
+                <td runat="server">
+                    <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                        <tr runat="server" style="background-color: #E0FFFF;color: #333333;">
+                            <th runat="server">商品质量</th>
+                            <th runat="server">物流评价</th>
+                            <th runat="server">服务质量</th>
+                            <th runat="server">评言</th>
+                        </tr>
+                        <tr id="itemPlaceholder" runat="server">
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr runat="server">
+                <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF"></td>
+            </tr>
+        </table>
+    </LayoutTemplate>
+                </asp:ListView>
+<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:db17135111ConnectionString %>" SelectCommand="SELECT dbo.pj.orderid, dbo.pj.sp, dbo.pj.wl, dbo.pj.fw, dbo.pj.txt FROM dbo.pj INNER JOIN dbo.orderDetails ON dbo.pj.orderid = dbo.orderDetails.orderId WHERE (dbo.orderDetails.pID = @pid)">
+    <SelectParameters>
+        <asp:QueryStringParameter Name="pid" QueryStringField="id" />
+    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+        </tr>
+    </table></center>
 </asp:Content>
 

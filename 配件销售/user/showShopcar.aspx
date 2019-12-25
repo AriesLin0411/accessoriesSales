@@ -1,13 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/userMasterPage3.master" AutoEventWireup="true" CodeFile="showShopcar.aspx.cs" Inherits="user_showShopcar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/user/MasterPage.master" AutoEventWireup="true" CodeFile="showShopcar.aspx.cs" Inherits="user_showShopcar" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table width="100%">
-        <tr><td>
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
-        <EmptyDataTemplate>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <table width="100%" border="0">
+        <tr>
+            <td>
+                <asp:UpdatePanel runat="server">
+                    <ContentTemplate>
+                    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
+                        <emptydatatemplate>
             <span>您的购物车为空</span>
-        </EmptyDataTemplate>
-        <ItemTemplate>
+        </emptydatatemplate>
+                        <itemtemplate>
 
                 <tr style="">
                 <td>
@@ -36,8 +40,8 @@
                 </td>
             </tr>
 
-        </ItemTemplate>
-        <LayoutTemplate>
+        </itemtemplate>
+                        <layouttemplate>
                         <table id="Table2" runat="server">
                 <tr id="Tr1" runat="server">
                     <td id="Td1" runat="server">
@@ -58,20 +62,27 @@
                     </td>
                 </tr>
             </table>
-        </LayoutTemplate>
-    </asp:ListView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db17135111ConnectionString %>" SelectCommand="SELECT dbo.shopCar.pID, dbo.Products.pIMG, dbo.Products.pNAME, dbo.Products.pPRICE, dbo.shopCar.num, dbo.shopCar.num * dbo.Products.pPRICE AS totalPrice FROM dbo.Products INNER JOIN dbo.shopCar ON dbo.Products.pID = dbo.shopCar.pID WHERE (dbo.shopCar.username = @username)">
-        <SelectParameters>
+        </layouttemplate>
+                    </asp:ListView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db17135111ConnectionString %>" SelectCommand="SELECT dbo.shopCar.pID, dbo.Products.pIMG, dbo.Products.pNAME, dbo.Products.pPRICE, dbo.shopCar.num, dbo.shopCar.num * dbo.Products.pPRICE AS totalPrice FROM dbo.Products INNER JOIN dbo.shopCar ON dbo.Products.pID = dbo.shopCar.pID WHERE (dbo.shopCar.username = @username)">
+                        <selectparameters>
             <asp:SessionParameter Name="username" SessionField="username1" />
-        </SelectParameters>
-    </asp:SqlDataSource></td>
+        </selectparameters>
+                    </asp:SqlDataSource>
+                        </ContentTemplate>
+                </asp:UpdatePanel>
+
+            </td>
         </tr>
-        </table>
-        <table align="right">
+    </table>
+    <table align="right" border="0">
         <tr>
             <td>
-    <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label>
-    <asp:Button ID="btnSubmit" runat="server" Text="提交订单" OnClick="btnSubmit_Click" CausesValidation="False" /></td></tr>
+                总价:
+                <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label>
+                <asp:Button ID="btnSubmit" runat="server" Text="提交订单" OnClick="btnSubmit_Click" CausesValidation="False" />
+            </td>
+        </tr>
     </table>
 </asp:Content>
 

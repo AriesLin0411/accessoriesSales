@@ -6,12 +6,43 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 public partial class register : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
 		
+	}
+	protected void txtUsername_TextChanged(object sender, EventArgs e)
+	{
+		if (isUnameExisted(txtUsername.Text.Trim()))
+		{
+			Label1.Text = "该会员名已存在，请换一个。";
+		}
+		else
+		{
+			Label1.Text = "恭喜，该会员名可用。";
+		}
+
+	}
+	protected bool isUnameExisted(string uname)
+	{
+		string cnnstr = ConfigurationManager.ConnectionStrings["db17135111ConnectionString"].ConnectionString;
+		SqlConnection connection = new SqlConnection(cnnstr);
+		string queryString = "select top 1 * from Users where username=@uname";
+		SqlDataAdapter adapter = new SqlDataAdapter(queryString, connection);
+		adapter.SelectCommand.Parameters.AddWithValue("@uname", uname);
+		DataSet ds = new DataSet();
+		adapter.Fill(ds);//填充数据集
+		if (ds.Tables[0].Rows.Count > 0)//数据集第一张表中有数据吗？
+		{//有，用户名已存在返回true
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	protected void btnSubmit_Click(object sender,EventArgs e)
 	{
