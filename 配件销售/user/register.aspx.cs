@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.Web.UI;
 
 public partial class register : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		
 	}
+
 	protected void txtUsername_TextChanged(object sender, EventArgs e)
 	{
 		if (isUnameExisted(txtUsername.Text.Trim()))
@@ -24,8 +20,8 @@ public partial class register : System.Web.UI.Page
 		{
 			Label1.Text = "恭喜，该会员名可用。";
 		}
-
 	}
+
 	protected bool isUnameExisted(string uname)
 	{
 		string cnnstr = ConfigurationManager.ConnectionStrings["db17135111ConnectionString"].ConnectionString;
@@ -44,7 +40,8 @@ public partial class register : System.Web.UI.Page
 			return false;
 		}
 	}
-	protected void btnSubmit_Click(object sender,EventArgs e)
+
+	protected void btnSubmit_Click(object sender, EventArgs e)
 	{
 		string connectionString = ConfigurationManager.ConnectionStrings["db17135111ConnectionString"].ConnectionString;
 		SqlConnection connection = new SqlConnection(connectionString);
@@ -58,16 +55,18 @@ public partial class register : System.Web.UI.Page
 			sex = "女";
 		if (txtPassword.Text != txtConfirmpassword.Text)
 			Response.Write("<script>alert('两次输入密码不相等')</script>");
-		mycmd.Parameters.AddWithValue("@username",txtUsername.Text.Trim());
+		mycmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
 		mycmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
 		mycmd.Parameters.AddWithValue("@phonenumber", txtPhonenumber.Text.Trim());
 		mycmd.Parameters.AddWithValue("@sex", sex);
 		mycmd.Parameters.AddWithValue("@address", txtAddress.Text.Trim());
 		mycmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
 		int result = 0;
-		try {
-			result = mycmd.ExecuteNonQuery(); }
-		catch(Exception ee)
+		try
+		{
+			result = mycmd.ExecuteNonQuery();
+		}
+		catch (Exception ee)
 		{
 			Response.Write(ee.Message);
 			return;
@@ -76,15 +75,16 @@ public partial class register : System.Web.UI.Page
 		Session["username"] = txtUsername.Text.Trim();
 		Response.Write("注册成功");
 	}
+
 	protected void btnReset_Click(object sender, EventArgs e)
 	{
 		this.FindButton(this);
 	}
+
 	private void FindButton(Control c)
 	{
 		if (c.Controls != null)
 		{
-
 			foreach (Control x in c.Controls)
 			{
 				if (x is System.Web.UI.WebControls.TextBox)
