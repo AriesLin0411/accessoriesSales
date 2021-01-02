@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
     <!-- Banners Area -->
         <div class="banners-area pb-30 bg-grey">
             <div class="container">
@@ -23,7 +24,7 @@
                                     <li><a href="showlistProducts.aspx?type=6&name=内存条"><i class="ion ion-ios-volume-high"></i>内存条</a></li>
                                     <li><a href="showlistProducts.aspx?type=7&name=固态硬盘"><i class="ion ion-ios-desktop"></i>固态硬盘</a></li>
                                     <li><a href="showlistProducts.aspx?type=8&name=机械硬盘"><i class="ion ion-md-watch"></i>机械硬盘</a></li>
-                                    <li><a href="showlistProducts.aspx?type=9&name=声卡"><i class="ion ion-ios-camera"></i>声卡</a></li>
+                                    <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=9&name=声卡"><i class="ion ion-ios-camera"></i>声卡</a></li>
                                     <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=网卡"><i class="ion ion-ios-desktop"></i>网卡</a></li>
                                     <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=风冷散热器"><i class="ion ion-md-watch"></i>风冷散热器</a></li>
                                     <li class="catmenu-hidden"><a href="showlistProducts.aspx?type=1&name=水冷散热器"><i class="ion ion-ios-camera"></i>水冷散热器</a></li>
@@ -106,14 +107,32 @@
                         </tr>
                     </GroupTemplate>
                     <ItemTemplate>
+                        
                         <td runat="server" style="">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("pIMG") %>' Width="120px" Height="120px" title='<%# Eval("pNAME") %>' />
-                            <br />
+                        <div class="card ecommerce-card">
+                        <div class="card-content">
+                            <div class="item-img text-center">
+                            <asp:Image class="img-fluid" alt="img-placeholder" ID="Image1" runat="server" ImageUrl='<%# Eval("pIMG") %>' title='<%# Eval("pNAME") %>' />
+                                
+                            </div>
+                            <div class="card-body">
+                                <div class="item-wrapper">
+                                    <div>
+                                        <h6 class="item-price">
+                                            ￥:
+                            <asp:Label ID="pPRICELabel" runat="server" Text='<%# Eval("pPRICE") %>' />
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="item-name">
+                                    <span>
                             <a href="showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>" title='<%# Eval("pNAME") %>'><%# Eval("pNAME").ToString().Length>6?Eval("pNAME").ToString().Substring(0,6):Eval("pNAME") %></a>
-                            <br />
-                            <br />￥:
-                            <asp:Label ID="pPRICELabel" runat="server" ForeColor="red" Text='<%# Eval("pPRICE") %>' />
-                            <br />
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
                         </td>
                     </ItemTemplate>
                     <LayoutTemplate>
@@ -138,5 +157,22 @@
         </tr>
     </table>
         <center>
+            <!-- BEGIN: Vendor JS-->
+    <script src="app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.js"></script>
+    <script src="app-assets/js/core/app.js"></script>
+    <script src="app-assets/js/scripts/components.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="app-assets/js/scripts/pages/app-ecommerce-shop.js"></script>
+    <!-- END: Page JS-->
+
 </asp:Content>
 

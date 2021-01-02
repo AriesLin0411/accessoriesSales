@@ -14,15 +14,19 @@
                         </tr>
                     </GroupTemplate>
                     <ItemTemplate>
-                        <td runat="server" style="">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("pIMG") %>' Width="120px" Height="120px" title='<%# Eval("pNAME") %>' />
-                            <br />
-                            <a href="showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>" title='<%# Eval("pNAME") %>'><%# Eval("pNAME").ToString().Length>6?Eval("pNAME").ToString().Substring(0,6):Eval("pNAME") %></a>
-                            <br />
-                            <br />￥:
-                            <asp:Label ID="pPRICELabel" runat="server" ForeColor="red" Text='<%# Eval("pPRICE") %>' />
-                            <br />
-                        </td>
+                        <div class="card border-info text-center bg-transparent">
+                                <div class="card-content">
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("pIMG") %>' alt="element 04" width="200" class="float-left mt-3 pl-2" title='<%# Eval("pNAME") %>' />
+                                    
+                                    <div class="card-body">
+                                        <h4 class="card-title mt-3">                            <a href="showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>" title='<%# Eval("pNAME") %>'><%# Eval("pNAME").ToString().Length>6?Eval("pNAME").ToString().Substring(0,6):Eval("pNAME") %></a>
+</h4>
+                                        <p class="card-text mb-25">                            ￥:<asp:Label ID="pPRICELabel" runat="server" Text='<%# Eval("pPRICE") %>' />
+</p>
+                                        <button class="btn btn-info mt-1" ><a href="showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>">Buy Now</a></button>
+                                    </div>
+                                </div>
+                            </div>
                     </ItemTemplate>
                     <LayoutTemplate>
                         <table runat="server">

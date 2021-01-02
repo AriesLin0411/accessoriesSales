@@ -12,9 +12,17 @@
                     
                     <ItemTemplate>
                         <span style="">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("pIMG") %>' Width="80px" Height="80px" title='<%# Eval("pNAME") %>' /> <br /> 
-                            <a href='showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>' title='<%# Eval("pNAME") %>' ><%# Eval("pNAME").ToString().Length > 6 ? Eval("pNAME").ToString().Substring(0, 6) : Eval("pNAME") %></a> <br /> 
-                            ￥: <asp:Label ID="Label2" runat="server" ForeColor="Red" Text='<%# Eval("pPRICE") %>' /> <br />
+                            <div class="card border-info text-center bg-transparent">
+                                    <div class="card-content">
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("pIMG") %>' alt="element 04" width="150" class="float-left mt-3 pl-2 img-fluid" title='<%# Eval("pNAME") %>' />
+
+                                        <div class="card-body">
+                                            <h4 class="card-title mt-3"><a href='showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>' title='<%# Eval("pNAME") %>' ><%# Eval("pNAME").ToString().Length > 6 ? Eval("pNAME").ToString().Substring(0, 6) : Eval("pNAME") %></a></h4>
+                                            <p class="card-text">￥: <asp:Label ID="Label2" runat="server" Text='<%# Eval("pPRICE") %>' /> </p>
+                                            <button class="btn btn-info"><a href='showProducts.aspx?id=<%# Eval("pID") %>&type=<%# Eval("pCLASSID") %>'>Buy Now</a></button>
+                                        </div>
+                                    </div>
+                                </div>
 
                           
 <br /></span>
@@ -36,14 +44,13 @@ Type="Int32" />
                 </asp:SqlDataSource>
 
             </td>
-            <td>&nbsp;
+            <td valign="top">&nbsp;
 
                 <asp:ListView ID="ListView2" runat="server" DataKeyNames="pID" DataSourceID="SqlDataSource2">
                     
                     <ItemTemplate>
                         <span style="">
-                            
-                            <%# Eval("pNAME") %> <hr /> 
+                            <p class="font-large-2" ><%# Eval("pNAME") %></p>
                             <table width="100%"> 
                                 <tr>
                                     <td> 
